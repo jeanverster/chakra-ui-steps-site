@@ -10,7 +10,6 @@ const CustomIcons = (): JSX.Element => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   });
-
   return (
     <VStack width="100%">
       <Steps activeStep={activeStep}>

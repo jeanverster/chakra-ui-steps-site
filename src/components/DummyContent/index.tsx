@@ -8,13 +8,13 @@ type DummyContentProps = {
 const DummyContent = ({ title }: DummyContentProps): JSX.Element => {
   return (
     <Flex
-      justify="center"
+      p={8}
+      flex={1}
+      width="100%"
+      rounded="md"
       align="center"
       borderWidth={1}
-      p={8}
-      width="100%"
-      flex={1}
-      rounded="md"
+      justify="center"
     >
       <Heading fontSize="xl">{title}</Heading>
     </Flex>

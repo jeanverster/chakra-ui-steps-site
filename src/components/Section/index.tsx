@@ -27,17 +27,21 @@ const Section: React.FC<SectionProps> = ({
           </Heading>
           {subTitle}
         </VStack>
-        <Button
-          size="sm"
-          rightIcon={<FiCode />}
-          aria-label="show code snippet"
-          onClick={() => setShowCode(!showCode)}
-        >
-          {showCode ? "Hide" : "Show"} Code
-        </Button>
+        {!!codeString && (
+          <Button
+            size="sm"
+            rightIcon={<FiCode />}
+            aria-label="show code snippet"
+            onClick={() => setShowCode(!showCode)}
+          >
+            {showCode ? "Hide" : "Show"} Code
+          </Button>
+        )}
       </Flex>
       {children}
-      <CodeBlock codeString={codeString || ""} show={showCode} />
+      {!!codeString && (
+        <CodeBlock codeString={codeString || ""} show={showCode} />
+      )}
       <Divider pb={4} />
     </>
   );

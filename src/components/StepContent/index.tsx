@@ -21,6 +21,7 @@ const StepContent: React.FC<StepContentProps> = ({
 }) => {
   return (
     <VStack
+      ml={2}
       width="100%"
       rounded="md"
       textAlign="left"

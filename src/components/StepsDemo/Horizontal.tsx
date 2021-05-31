@@ -1,7 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import { Step, Steps, useSteps } from "chakra-ui-steps";
 import * as React from "react";
-import DummyContent from "../DummyContent/index";
+import { LoremIpsum } from "react-lorem-ipsum";
 import ResetPrompt from "../ResetPrompt";
 import StepContent from "../StepContent";
 
@@ -19,7 +19,7 @@ const Horizontal = () => {
             onClickPrev={prevStep}
             prevDisabled={activeStep === 0}
           >
-            <DummyContent title="Step 1 Content" />
+            <LoremIpsum p={1} />
           </StepContent>
         </Step>
         <Step label="Step 2">
@@ -28,7 +28,7 @@ const Horizontal = () => {
             onClickNext={nextStep}
             onClickPrev={prevStep}
           >
-            <DummyContent title="Step 2 Content" />
+            <LoremIpsum p={1} />
           </StepContent>
         </Step>
         <Step label="Step 3">
@@ -37,7 +37,7 @@ const Horizontal = () => {
             onClickNext={nextStep}
             onClickPrev={prevStep}
           >
-            <DummyContent title="Step 3 Content" />
+            <LoremIpsum p={1} />
           </StepContent>
         </Step>
       </Steps>
