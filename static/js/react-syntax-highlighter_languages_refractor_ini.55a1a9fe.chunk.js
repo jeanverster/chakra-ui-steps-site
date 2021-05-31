@@ -1,0 +1,2 @@
+(this["webpackJsonpchakra-ui-steps-site"]=this["webpackJsonpchakra-ui-steps-site"]||[]).push([[60],{278:function(t,s,i){"use strict";function a(t){t.languages.ini={comment:/^[ \t]*[;#].*$/m,selector:/^[ \t]*\[.*?\]/m,constant:/^[ \t]*[^\s=]+?(?=[ \t]*=)/m,"attr-value":{pattern:/=.*/,inside:{punctuation:/^[=]/}}}}t.exports=a,a.displayName="ini",a.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_ini.55a1a9fe.chunk.js.map
