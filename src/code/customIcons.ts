@@ -1,45 +1,40 @@
-export const customIconsExample = `
-import { FiClipboard, FiDollarSign, FiUser } from "react-icons/fi";
+export const customIconsExample = `import { Step, Steps, useSteps } from "chakra-ui-steps"
+import { LoremIpsum } from "react-lorem-ipsum"
+import { FiClipboard, FiDollarSign, FiUser } from "react-icons/fi"
 
-const CustomIcons = (): JSX.Element => {
+const content = (
+  <Flex py={4}>
+    <LoremIpsum p={1} />
+  </Flex>
+)
+
+const steps = [
+  { label: "Login", icon: FiUser, content },
+  { label: "Verification", icon: FiClipboard, content },
+  { label: "Pay", icon: FiDollarSign, content },
+]
+
+export const CustomIcons = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
-  });
+  })
   return (
     <VStack width="100%">
       <Steps activeStep={activeStep}>
-        <Step icon={FiUser} label="Login">
-          <StepContent
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-            prevDisabled={activeStep === 0}
-          >
-            <LoremIpsum p={1} />
-          </StepContent>
-        </Step>
-        <Step icon={FiClipboard} label="Verification">
-          <StepContent
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-          >
-            <LoremIpsum p={1} />
-          </StepContent>
-        </Step>
-        <Step icon={FiDollarSign} label="Pay">
-          <StepContent
-            isLast
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-          >
-            <LoremIpsum p={1} />
-          </StepContent>
-        </Step>
+        {steps.map(({ label, content, icon }) => (
+          <Step label={label} key={label} icon={icon}>
+            {content}
+          </Step>
+        ))}
       </Steps>
-      {activeStep === 3 && <ResetPrompt onReset={reset} />}
+      {activeStep === 3 ? (
+        <ResetPrompt onReset={reset} />
+      ) : (
+        <StepButtons
+          {...{ nextStep, prevStep }}
+          prevDisabled={activeStep === 0}
+        />
+      )}
     </VStack>
-  );
-};
-`;
+  )
+}`

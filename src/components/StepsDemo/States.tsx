@@ -1,25 +1,37 @@
-import { HStack, Radio, RadioGroup, VStack } from "@chakra-ui/react";
-import { Step, Steps, useSteps } from "chakra-ui-steps";
-import * as React from "react";
-import { LoremIpsum } from "react-lorem-ipsum";
-import ResetPrompt from "../ResetPrompt";
-import StepContent from "../StepContent";
+import { Flex, HStack, Radio, RadioGroup, VStack } from "@chakra-ui/react"
+import { Step, Steps, useSteps } from "chakra-ui-steps"
+import * as React from "react"
+import { LoremIpsum } from "react-lorem-ipsum"
+import ResetPrompt from "../ResetPrompt"
+import StepButtons from "../StepButtons/index"
 
-type StateValue = "loading" | "error" | undefined;
+type StateValue = "loading" | "error" | undefined
 
-const States = (): JSX.Element => {
+const content = (
+  <Flex py={4}>
+    <LoremIpsum p={1} />
+  </Flex>
+)
+
+const steps = [
+  { label: "Step 1", content },
+  { label: "Step 2", content },
+  { label: "Step 3", content },
+]
+
+export const States = (): JSX.Element => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
-  });
+  })
 
-  const [stepState, setStepState] = React.useState<StateValue>("loading");
+  const [stepState, setStepState] = React.useState<StateValue>("loading")
 
   return (
     <VStack width="100%">
       <VStack width="100%" mb={8} align="flex-start">
         <RadioGroup
-          onChange={(val) => setStepState(val as StateValue)}
           defaultValue="loading"
+          onChange={(val) => setStepState(val as StateValue)}
         >
           <HStack direction="row">
             <Radio value="loading">Loading</Radio>
@@ -28,38 +40,22 @@ const States = (): JSX.Element => {
         </RadioGroup>
       </VStack>
       <Steps state={stepState} activeStep={activeStep}>
-        <Step label="Step 1">
-          <StepContent
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-            prevDisabled={activeStep === 0}
-          >
-            <LoremIpsum p={1} />
-          </StepContent>
-        </Step>
-        <Step label="Step 2">
-          <StepContent
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-          >
-            <LoremIpsum p={1} />
-          </StepContent>
-        </Step>
-        <Step label="Step 3">
-          <StepContent
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-          >
-            <LoremIpsum p={1} />
-          </StepContent>
-        </Step>
+        {steps.map(({ label, content }) => (
+          <Step label={label} key={label}>
+            {content}
+          </Step>
+        ))}
       </Steps>
-      {activeStep === 3 && <ResetPrompt onReset={reset} />}
+      {activeStep === 3 ? (
+        <ResetPrompt onReset={reset} />
+      ) : (
+        <StepButtons
+          {...{ nextStep, prevStep }}
+          prevDisabled={activeStep === 0}
+        />
+      )}
     </VStack>
-  );
-};
+  )
+}
 
-export default States;
+export default States

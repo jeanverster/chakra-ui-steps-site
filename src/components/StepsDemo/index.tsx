@@ -8,21 +8,22 @@ import {
   Spacer,
   Text,
   VStack,
-} from "@chakra-ui/react";
-import * as React from "react";
-import { customIconsExample } from "../../code/customIcons";
-import { descriptionsExample } from "../../code/descriptions";
-import { horizontalExample } from "../../code/horizontal";
-import { verticalExample } from "../../code/vertical";
-import Section from "../Section/index";
-import CustomIcons from "./CustomIcons";
-import Descriptions from "./Descriptions";
-import Horizontal from "./Horizontal";
-import Sizes from "./Sizes";
-import States from "./States";
-import Vertical from "./Vertical";
+} from "@chakra-ui/react"
+import * as React from "react"
+import { customIconsExample } from "../../code/customIcons"
+import { descriptionsExample } from "../../code/descriptions"
+import { horizontalExample } from "../../code/horizontal"
+import { statesExample } from "../../code/states"
+import { verticalExample } from "../../code/vertical"
+import Section from "../Section/index"
+import CustomIcons from "./CustomIcons"
+import Descriptions from "./Descriptions"
+import Horizontal from "./Horizontal"
+import Sizes from "./Sizes"
+import States from "./States"
+import Vertical from "./Vertical"
 
-type StepsDemoProps = {};
+type StepsDemoProps = {}
 
 const StepsDemo = (props: StepsDemoProps): JSX.Element => {
   return (
@@ -90,6 +91,7 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
       </Section>
       <Section
         title="States"
+        codeString={statesExample}
         subTitle={
           <Text textAlign="left">
             Sometimes it is useful to show visual feedback to the user depending
@@ -124,7 +126,7 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
         </HStack>
       </Flex>
     </VStack>
-  );
-};
+  )
+}
 
-export default StepsDemo;
+export default StepsDemo

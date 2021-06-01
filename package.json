@@ -15,14 +15,14 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "body-scroll-lock": "^3.1.5",
-    "chakra-ui-steps": "file:.yalc/chakra-ui-steps",
+    "chakra-ui-steps": "^0.1.0",
     "framer-motion": "^4.0.0",
     "react": "^17.0.2",
-    "react-code-blocks": "^0.0.8",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-lorem-ipsum": "^1.4.9",
     "react-scripts": "4.0.3",
+    "react-syntax-highlighter": "^15.4.3",
     "typescript": "^3.9.5",
     "web-vitals": "^0.2.2"
   },
@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b main -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-syntax-highlighter": "^13.5.0",
     "gh-pages": "^3.2.0"
   }
 }
