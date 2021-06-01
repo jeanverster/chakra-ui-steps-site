@@ -1,2 +1,0 @@
-(this["webpackJsonpchakra-ui-steps-site"]=this["webpackJsonpchakra-ui-steps-site"]||[]).push([[18],{240:function(a,e,t){"use strict";function s(a){a.languages.brainfuck={pointer:{pattern:/<|>/,alias:"keyword"},increment:{pattern:/\+/,alias:"inserted"},decrement:{pattern:/-/,alias:"deleted"},branching:{pattern:/\[|\]/,alias:"important"},operator:/[.,]/,comment:/\S+/}}a.exports=s,s.displayName="brainfuck",s.aliases=[]}}]);
-//# sourceMappingURL=react-syntax-highlighter_languages_refractor_brainfuck.85fadf66.chunk.js.map
