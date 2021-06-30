@@ -21,13 +21,11 @@ export const Vertical = (): JSX.Element => {
   return (
     <VStack width="100%">
       <Steps orientation="vertical" activeStep={activeStep}>
-        <Steps activeStep={activeStep}>
-          {steps.map(({ label, content }) => (
-            <Step label={label} key={label}>
-              {content}
-            </Step>
-          ))}
-        </Steps>
+        {steps.map(({ label, content }) => (
+          <Step label={label} key={label}>
+            {content}
+          </Step>
+        ))}
       </Steps>
       {activeStep === 3 ? (
         <ResetPrompt onReset={reset} />
