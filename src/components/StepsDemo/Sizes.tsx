@@ -1,18 +1,19 @@
-import { HStack, Radio, RadioGroup, VStack } from "@chakra-ui/react";
-import { Step, Steps, useSteps } from "chakra-ui-steps";
-import * as React from "react";
-import ResetPrompt from "../ResetPrompt";
-import StepContent from "../StepContent";
+import { Flex, HStack, Radio, RadioGroup, VStack } from "@chakra-ui/react"
+import { Step, Steps, useSteps } from "chakra-ui-steps"
+import * as React from "react"
+import Contents from "../Contents/index"
+import ResetPrompt from "../ResetPrompt"
+import StepButtons from "../StepButtons"
 
-type StateValue = "sm" | "md" | "lg";
+type StateValue = "sm" | "md" | "lg"
 
-const Sizes = (): JSX.Element => {
-  const { nextStep, prevStep, reset, activeStep } = useSteps({
+const steps = [{ label: "Step 1" }, { label: "Step 2" }, { label: "Step 3" }]
+
+const Sizes = () => {
+  const { prevStep, nextStep, reset, activeStep } = useSteps({
     initialStep: 0,
-  });
-
-  const [stepState, setStepState] = React.useState<StateValue>("md");
-
+  })
+  const [stepState, setStepState] = React.useState<StateValue>("md")
   return (
     <VStack width="100%">
       <VStack width="100%" mb={8} align="flex-start">
@@ -27,33 +28,26 @@ const Sizes = (): JSX.Element => {
           </HStack>
         </RadioGroup>
       </VStack>
-      <Steps size={stepState} activeStep={activeStep}>
-        <Step label="Step 1">
-          <StepContent
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-            prevDisabled={activeStep === 0}
-          />
-        </Step>
-        <Step label="Step 2">
-          <StepContent
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-          />
-        </Step>
-        <Step label="Step 3">
-          <StepContent
-            isHorizontal
-            onClickNext={nextStep}
-            onClickPrev={prevStep}
-          />
-        </Step>
-      </Steps>
-      {activeStep === 3 && <ResetPrompt onReset={reset} />}
+      <Flex width="100%" flexDir="column">
+        <Steps size={stepState} activeStep={activeStep}>
+          {steps.map(({ label }, index) => (
+            <Step label={label} key={label}>
+              <Contents index={index} />
+            </Step>
+          ))}
+        </Steps>
+      </Flex>
+      {activeStep === 3 ? (
+        <ResetPrompt onReset={reset} />
+      ) : (
+        <StepButtons
+          nextStep={nextStep}
+          prevStep={prevStep}
+          prevDisabled={activeStep === 0}
+        />
+      )}
     </VStack>
-  );
-};
+  )
+}
 
-export default Sizes;
+export default Sizes

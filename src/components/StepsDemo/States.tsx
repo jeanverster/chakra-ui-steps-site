@@ -1,25 +1,15 @@
 import { Flex, HStack, Radio, RadioGroup, VStack } from "@chakra-ui/react"
 import { Step, Steps, useSteps } from "chakra-ui-steps"
 import * as React from "react"
-import { LoremIpsum } from "react-lorem-ipsum"
+import Contents from "../Contents"
 import ResetPrompt from "../ResetPrompt"
 import StepButtons from "../StepButtons/index"
 
 type StateValue = "loading" | "error" | undefined
 
-const content = (
-  <Flex py={4}>
-    <LoremIpsum p={1} />
-  </Flex>
-)
+const steps = [{ label: "Step 1" }, { label: "Step 2" }, { label: "Step 3" }]
 
-const steps = [
-  { label: "Step 1", content },
-  { label: "Step 2", content },
-  { label: "Step 3", content },
-]
-
-export const States = (): JSX.Element => {
+export const States = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   })
@@ -27,7 +17,7 @@ export const States = (): JSX.Element => {
   const [stepState, setStepState] = React.useState<StateValue>("loading")
 
   return (
-    <VStack width="100%">
+    <Flex flexDir="column" width="100%">
       <VStack width="100%" mb={8} align="flex-start">
         <RadioGroup
           defaultValue="loading"
@@ -40,9 +30,9 @@ export const States = (): JSX.Element => {
         </RadioGroup>
       </VStack>
       <Steps state={stepState} activeStep={activeStep}>
-        {steps.map(({ label, content }) => (
+        {steps.map(({ label }, index) => (
           <Step label={label} key={label}>
-            {content}
+            <Contents index={index} />
           </Step>
         ))}
       </Steps>
@@ -50,11 +40,12 @@ export const States = (): JSX.Element => {
         <ResetPrompt onReset={reset} />
       ) : (
         <StepButtons
-          {...{ nextStep, prevStep }}
+          nextStep={nextStep}
+          prevStep={prevStep}
           prevDisabled={activeStep === 0}
         />
       )}
-    </VStack>
+    </Flex>
   )
 }
 
