@@ -1,32 +1,26 @@
-import { Flex, VStack } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import { Step, Steps, useSteps } from "chakra-ui-steps"
 import * as React from "react"
-import { LoremIpsum } from "react-lorem-ipsum"
+import Contents from "../Contents"
 import ResetPrompt from "../ResetPrompt"
-import StepButtons from "../StepButtons/index"
-
-const content = (
-  <Flex py={4}>
-    <LoremIpsum p={1} />
-  </Flex>
-)
+import StepButtons from "../StepButtons"
 
 const steps = [
-  { label: "Step 1", description: "Step 1 description", content },
-  { label: "Step 2", description: "Step 2 description", content },
-  { label: "Step 3", description: "Step 3 description", content },
+  { label: "Step 1", description: "Step 1 description" },
+  { label: "Step 2", description: "Step 2 description" },
+  { label: "Step 3", description: "Step 3 description" },
 ]
 
-export const Descriptions = (): JSX.Element => {
+export const Descriptions = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   })
   return (
-    <VStack width="100%">
+    <Flex flexDir="column" width="100%">
       <Steps colorScheme="telegram" activeStep={activeStep}>
-        {steps.map(({ label, content, description }) => (
+        {steps.map(({ label, description }, index) => (
           <Step label={label} key={label} description={description}>
-            {content}
+            <Contents index={index} />
           </Step>
         ))}
       </Steps>
@@ -34,11 +28,12 @@ export const Descriptions = (): JSX.Element => {
         <ResetPrompt onReset={reset} />
       ) : (
         <StepButtons
-          {...{ nextStep, prevStep }}
+          nextStep={nextStep}
+          prevStep={prevStep}
           prevDisabled={activeStep === 0}
         />
       )}
-    </VStack>
+    </Flex>
   )
 }
 

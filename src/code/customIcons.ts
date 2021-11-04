@@ -1,17 +1,10 @@
 export const customIconsExample = `import { Step, Steps, useSteps } from "chakra-ui-steps"
-import { LoremIpsum } from "react-lorem-ipsum"
 import { FiClipboard, FiDollarSign, FiUser } from "react-icons/fi"
 
-const content = (
-  <Flex py={4}>
-    <LoremIpsum p={1} />
-  </Flex>
-)
-
 const steps = [
-  { label: "Login", icon: FiUser, content },
-  { label: "Verification", icon: FiClipboard, content },
-  { label: "Pay", icon: FiDollarSign, content },
+  { label: "Login", icon: FiUser },
+  { label: "Verification", icon: FiClipboard },
+  { label: "Pay", icon: FiDollarSign },
 ]
 
 export const CustomIcons = () => {
@@ -19,11 +12,11 @@ export const CustomIcons = () => {
     initialStep: 0,
   })
   return (
-    <VStack width="100%">
+    <Flex flexDir="column" width="100%">
       <Steps activeStep={activeStep}>
-        {steps.map(({ label, content, icon }) => (
+        {steps.map(({ label, icon }, index) => (
           <Step label={label} key={label} icon={icon}>
-            {content}
+            <Contents index={index} />
           </Step>
         ))}
       </Steps>
@@ -31,10 +24,13 @@ export const CustomIcons = () => {
         <ResetPrompt onReset={reset} />
       ) : (
         <StepButtons
-          {...{ nextStep, prevStep }}
+          nextStep={nextStep}
+          prevStep={prevStep}
           prevDisabled={activeStep === 0}
         />
       )}
-    </VStack>
+    </Flex>
   )
-}`
+}
+
+export default CustomIcons`

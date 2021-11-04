@@ -5,17 +5,21 @@ import {
   HStack,
   Image,
   Link,
-  Spacer,
   Text,
   VStack,
 } from "@chakra-ui/react"
+import pkgJson from "chakra-ui-steps/package.json"
 import * as React from "react"
+import { clickableStepsExample } from "../../code/clickableSteps"
+import { customCheckIconExample } from "../../code/customCheckIcon"
 import { customIconsExample } from "../../code/customIcons"
 import { descriptionsExample } from "../../code/descriptions"
 import { horizontalExample } from "../../code/horizontal"
 import { statesExample } from "../../code/states"
 import { verticalExample } from "../../code/vertical"
 import Section from "../Section/index"
+import ClickableSteps from "./ClickableSteps"
+import CustomCheckIcon from "./CustomCheckIcon"
 import CustomIcons from "./CustomIcons"
 import Descriptions from "./Descriptions"
 import Horizontal from "./Horizontal"
@@ -28,19 +32,35 @@ type StepsDemoProps = {}
 const StepsDemo = (props: StepsDemoProps): JSX.Element => {
   return (
     <VStack width="100%" p={4}>
-      <Flex mb={4} align="center" justify="center">
+      <Flex mb={4} align="center" width="100%" justify="flex-start">
         <Image
-          width="40px"
-          height="40px"
+          mt="8px"
+          width="36px"
+          height="36px"
           rounded="full"
           src={require("../../assets/54212428.png")?.default}
         />
         <Heading ml={4} textAlign="left">
           chakra-ui-steps
         </Heading>
-        <Spacer />
+        <Code display={["none", "block"]} fontSize="lg" ml="auto">
+          v{pkgJson.version}
+        </Code>
       </Flex>
-
+      <Flex
+        flexDir="column"
+        align="flex-start"
+        justify="flex-start"
+        width="100%"
+      >
+        <Text>
+          A fully customisable Stepper component designed to work seamlessly
+          with Chakra UI.
+        </Text>
+        <Text mt={4} fontWeight="bold">
+          NOTE: v2.0 requires Chakra UI v1.6.7 or higher.
+        </Text>
+      </Flex>
       <Section
         title="Horizontal"
         codeString={horizontalExample}
@@ -90,6 +110,19 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
         <CustomIcons />
       </Section>
       <Section
+        title="Custom Check Icon"
+        codeString={customCheckIconExample}
+        subTitle={
+          <Text textAlign="left">
+            If you want to show a custom check icon instead of the default, you
+            can do so by using the <Code>checkIcon</Code> prop on the{" "}
+            <Code>Steps</Code> component.
+          </Text>
+        }
+      >
+        <CustomCheckIcon />
+      </Section>
+      <Section
         title="States"
         codeString={statesExample}
         subTitle={
@@ -101,6 +134,18 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
         }
       >
         <States />
+      </Section>
+      <Section
+        title="Clickable Steps"
+        codeString={clickableStepsExample}
+        subTitle={
+          <Text textAlign="left">
+            By providing the <Code>onClickStep</Code> prop the steps will become
+            clickable.
+          </Text>
+        }
+      >
+        <ClickableSteps />
       </Section>
       <Section
         title="Sizes"
@@ -115,7 +160,14 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
       </Section>
       <Flex p={8}>
         <HStack>
-          <Text>Made by</Text>
+          <Text>Made with</Text>
+          <Image
+            width="32px"
+            height="32px"
+            rounded="full"
+            src={require("../../assets/heart.png")?.default}
+          />
+          <Text>by</Text>
           <Link
             target="_blank"
             href="https://github.com/jeanverster"

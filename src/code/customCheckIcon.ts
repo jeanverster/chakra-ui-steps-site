@@ -1,17 +1,18 @@
-export const verticalExample = `import { Step, Steps, useSteps } from "chakra-ui-steps"
+export const customCheckIconExample = `import { Step, Steps, useSteps } from "chakra-ui-steps"
+import { FiCheckCircle } from "react-icons/fi"
 
 const steps = [{ label: "Step 1" }, { label: "Step 2" }, { label: "Step 3" }]
 
-export const Vertical = () => {
+export const CustomCheckIcon = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   })
   return (
-    <>
-      <Steps orientation="vertical" activeStep={activeStep}>
+    <Flex flexDir="column" width="100%">
+      <Steps checkIcon={FiCheckCircle} activeStep={activeStep}>
         {steps.map(({ label }, index) => (
-          <Step width="100%" label={label} key={label}>
-            <Contents my={1} index={index} />
+          <Step label={label} key={label}>
+            <Contents index={index} />
           </Step>
         ))}
       </Steps>
@@ -24,8 +25,8 @@ export const Vertical = () => {
           prevDisabled={activeStep === 0}
         />
       )}
-    </>
+    </Flex>
   )
 }
 
-export default Vertical`
+export default CustomCheckIcon`

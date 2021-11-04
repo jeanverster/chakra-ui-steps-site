@@ -1,28 +1,22 @@
-import {
-  ChakraProvider,
-  extendTheme,
-  Flex,
-  useMediaQuery,
-} from "@chakra-ui/react";
-import { StepsStyleConfig } from "chakra-ui-steps";
-import * as React from "react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import StepsDemo from "./components/StepsDemo";
+import { ChakraProvider, extendTheme, Flex } from "@chakra-ui/react"
+import { StepsStyleConfig as Steps } from "chakra-ui-steps"
+import * as React from "react"
+import { ColorModeSwitcher } from "./ColorModeSwitcher"
+import StepsDemo from "./components/StepsDemo"
 
 const theme = extendTheme({
   components: {
-    Steps: StepsStyleConfig,
+    Steps,
   },
-});
+})
 
 export const App = () => {
-  const [isMobile] = useMediaQuery("(max-width: 43em)");
   return (
     <ChakraProvider theme={theme}>
       <Flex
         p={3}
         minH="100vh"
-        maxW={isMobile ? "100%" : "50vmax"}
+        maxW={["100%", "50vmax"]}
         margin="0 auto"
         alignItems="center"
         justifyContent="center"
@@ -31,5 +25,5 @@ export const App = () => {
         <StepsDemo />
       </Flex>
     </ChakraProvider>
-  );
-};
+  )
+}

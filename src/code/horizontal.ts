@@ -1,28 +1,17 @@
 export const horizontalExample = `import { Step, Steps, useSteps } from "chakra-ui-steps"
-import { LoremIpsum } from "react-lorem-ipsum"
 
-const content = (
-  <Flex py={4}>
-    <LoremIpsum p={1} />
-  </Flex>
-)
-
-const steps = [
-  { label: "Step 1", content },
-  { label: "Step 2", content },
-  { label: "Step 3", content },
-]
+const steps = [{ label: "Step 1" }, { label: "Step 2" }, { label: "Step 3" }]
 
 export const Horizontal = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   })
   return (
-    <VStack width="100%">
+    <Flex flexDir="column" width="100%">
       <Steps activeStep={activeStep}>
-        {steps.map(({ label, content }) => (
+        {steps.map(({ label }, index) => (
           <Step label={label} key={label}>
-            {content}
+            <Contents index={index} />
           </Step>
         ))}
       </Steps>
@@ -30,10 +19,11 @@ export const Horizontal = () => {
         <ResetPrompt onReset={reset} />
       ) : (
         <StepButtons
-          {...{ nextStep, prevStep }}
+          nextStep={nextStep}
+          prevStep={prevStep}
           prevDisabled={activeStep === 0}
         />
       )}
-    </VStack>
+    </Flex>
   )
 }`

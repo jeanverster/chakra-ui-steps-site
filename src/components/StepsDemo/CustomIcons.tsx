@@ -1,33 +1,27 @@
-import { Flex, VStack } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import { Step, Steps, useSteps } from "chakra-ui-steps"
 import * as React from "react"
 import { FiClipboard, FiDollarSign, FiUser } from "react-icons/fi"
-import { LoremIpsum } from "react-lorem-ipsum"
+import Contents from "../Contents"
 import ResetPrompt from "../ResetPrompt"
-import StepButtons from "../StepButtons/index"
-
-const content = (
-  <Flex py={4}>
-    <LoremIpsum p={1} />
-  </Flex>
-)
+import StepButtons from "../StepButtons"
 
 const steps = [
-  { label: "Login", icon: FiUser, content },
-  { label: "Verification", icon: FiClipboard, content },
-  { label: "Pay", icon: FiDollarSign, content },
+  { label: "Login", icon: FiUser },
+  { label: "Verification", icon: FiClipboard },
+  { label: "Pay", icon: FiDollarSign },
 ]
 
-export const CustomIcons = (): JSX.Element => {
+export const CustomIcons = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   })
   return (
-    <VStack width="100%">
+    <Flex flexDir="column" width="100%">
       <Steps activeStep={activeStep}>
-        {steps.map(({ label, content, icon }) => (
+        {steps.map(({ label, icon }, index) => (
           <Step label={label} key={label} icon={icon}>
-            {content}
+            <Contents index={index} />
           </Step>
         ))}
       </Steps>
@@ -35,11 +29,12 @@ export const CustomIcons = (): JSX.Element => {
         <ResetPrompt onReset={reset} />
       ) : (
         <StepButtons
-          {...{ nextStep, prevStep }}
+          nextStep={nextStep}
+          prevStep={prevStep}
           prevDisabled={activeStep === 0}
         />
       )}
-    </VStack>
+    </Flex>
   )
 }
 
