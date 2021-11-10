@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/chakra-ui-steps-site/static/js/main.221f4ef5.chunk.js",
-    "main.js.map": "/chakra-ui-steps-site/static/js/main.221f4ef5.chunk.js.map",
+    "main.js": "/chakra-ui-steps-site/static/js/main.617d8e6e.chunk.js",
+    "main.js.map": "/chakra-ui-steps-site/static/js/main.617d8e6e.chunk.js.map",
     "runtime-main.js": "/chakra-ui-steps-site/static/js/runtime-main.77a2ffae.js",
     "runtime-main.js.map": "/chakra-ui-steps-site/static/js/runtime-main.77a2ffae.js.map",
-    "static/js/2.f3d083e2.chunk.js": "/chakra-ui-steps-site/static/js/2.f3d083e2.chunk.js",
-    "static/js/2.f3d083e2.chunk.js.map": "/chakra-ui-steps-site/static/js/2.f3d083e2.chunk.js.map",
+    "static/js/2.e4bfe696.chunk.js": "/chakra-ui-steps-site/static/js/2.e4bfe696.chunk.js",
+    "static/js/2.e4bfe696.chunk.js.map": "/chakra-ui-steps-site/static/js/2.e4bfe696.chunk.js.map",
     "static/js/3.2b86bd45.chunk.js": "/chakra-ui-steps-site/static/js/3.2b86bd45.chunk.js",
     "static/js/3.2b86bd45.chunk.js.map": "/chakra-ui-steps-site/static/js/3.2b86bd45.chunk.js.map",
     "index.html": "/chakra-ui-steps-site/index.html",
-    "static/js/2.f3d083e2.chunk.js.LICENSE.txt": "/chakra-ui-steps-site/static/js/2.f3d083e2.chunk.js.LICENSE.txt"
+    "static/js/2.e4bfe696.chunk.js.LICENSE.txt": "/chakra-ui-steps-site/static/js/2.e4bfe696.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.77a2ffae.js",
-    "static/js/2.f3d083e2.chunk.js",
-    "static/js/main.221f4ef5.chunk.js"
+    "static/js/2.e4bfe696.chunk.js",
+    "static/js/main.617d8e6e.chunk.js"
   ]
 }
