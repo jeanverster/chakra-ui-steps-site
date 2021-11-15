@@ -58,7 +58,7 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
           with Chakra UI.
         </Text>
         <Text mt={4} fontWeight="bold">
-          NOTE: v2.0 requires Chakra UI v1.6.7 or higher.
+          NOTE: v1.4.0+ requires Chakra UI v1.6.7 or higher.
         </Text>
       </Flex>
       <Section
@@ -170,8 +170,8 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
           <Text>by</Text>
           <Link
             target="_blank"
-            href="https://github.com/jeanverster"
             rel="noopen noreferrer"
+            href="https://github.com/jeanverster"
           >
             <Text fontWeight="bold">jeanverster</Text>
           </Link>
