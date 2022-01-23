@@ -17,6 +17,7 @@ import { descriptionsExample } from "../../code/descriptions"
 import { horizontalExample } from "../../code/horizontal"
 import { statesExample } from "../../code/states"
 import { verticalExample } from "../../code/vertical"
+import { verticalLabelsExample } from "../../code/verticalLabels"
 import Section from "../Section/index"
 import ClickableSteps from "./ClickableSteps"
 import CustomCheckIcon from "./CustomCheckIcon"
@@ -26,6 +27,7 @@ import Horizontal from "./Horizontal"
 import Sizes from "./Sizes"
 import States from "./States"
 import Vertical from "./Vertical"
+import VerticalLabels from "./VerticalLabels"
 
 type StepsDemoProps = {}
 
@@ -108,6 +110,19 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
         }
       >
         <CustomIcons />
+      </Section>
+      <Section
+        title="Label Orientation"
+        codeString={verticalLabelsExample}
+        subTitle={
+          <Text textAlign="left">
+            If you would like the labels to be positioned below the step icons
+            you can do so using the <Code>labelOrientation</Code> prop on the{" "}
+            <Code>Steps</Code> component.
+          </Text>
+        }
+      >
+        <VerticalLabels />
       </Section>
       <Section
         title="Custom Check Icon"
