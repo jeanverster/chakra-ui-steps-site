@@ -60,7 +60,7 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
           with Chakra UI.
         </Text>
         <Text mt={4} fontWeight="bold">
-          NOTE: v2.0 requires Chakra UI v1.6.7 or higher.
+          NOTE: v1.5+ requires Chakra UI v1.6.7 or higher.
         </Text>
       </Flex>
       <Section
