@@ -185,7 +185,7 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
           <Text>by</Text>
           <Link
             target="_blank"
-            href="https://github.com/jeanverster"
+            href="https://twitter.com/jeanverster"
             rel="noopen noreferrer"
           >
             <Text fontWeight="bold">jeanverster</Text>
