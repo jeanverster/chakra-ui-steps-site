@@ -1,9 +1,7 @@
-import { Flex } from "@chakra-ui/react"
+import { Button, Flex, Heading } from "@chakra-ui/react"
 import { Step, Steps, useSteps } from "chakra-ui-steps"
 import * as React from "react"
 import Contents from "../Contents"
-import ResetPrompt from "../ResetPrompt"
-import StepButtons from "../StepButtons"
 
 const steps = [
   { label: "Step 1", description: "Step 1 description" },
@@ -24,14 +22,30 @@ export const Descriptions = () => {
           </Step>
         ))}
       </Steps>
-      {activeStep === 3 ? (
-        <ResetPrompt onReset={reset} />
+      {activeStep === steps.length ? (
+        <Flex px={4} py={4} width="100%" flexDirection="column">
+          <Heading fontSize="xl" textAlign="center">
+            Woohoo! All steps completed!
+          </Heading>
+          <Button mx="auto" mt={6} size="sm" onClick={reset}>
+            Reset
+          </Button>
+        </Flex>
       ) : (
-        <StepButtons
-          nextStep={nextStep}
-          prevStep={prevStep}
-          prevDisabled={activeStep === 0}
-        />
+        <Flex width="100%" justify="flex-end">
+          <Button
+            isDisabled={activeStep === 0}
+            mr={4}
+            onClick={prevStep}
+            size="sm"
+            variant="ghost"
+          >
+            Prev
+          </Button>
+          <Button size="sm" onClick={nextStep}>
+            {activeStep === steps.length - 1 ? "Finish" : "Next"}
+          </Button>
+        </Flex>
       )}
     </Flex>
   )
