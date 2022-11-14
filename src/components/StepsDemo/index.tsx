@@ -15,6 +15,7 @@ import { customCheckIconExample } from "../../code/customCheckIcon"
 import { customIconsExample } from "../../code/customIcons"
 import { descriptionsExample } from "../../code/descriptions"
 import { horizontalExample } from "../../code/horizontal"
+import { sizesExample } from '../../code/sizes';
 import { statesExample } from "../../code/states"
 import { verticalExample } from "../../code/vertical"
 import { verticalLabelsExample } from "../../code/verticalLabels"
@@ -164,6 +165,7 @@ const StepsDemo = (props: StepsDemoProps): JSX.Element => {
       </Section>
       <Section
         title="Sizes"
+		codeString={sizesExample}
         subTitle={
           <Text textAlign="left">
             By using the <Code>size</Code> prop you are able to quickly and
